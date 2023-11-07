@@ -3,7 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-
+use CodeIgniter\HTTP\Response;
 class AuthorController extends BaseController
 {
      /**
@@ -23,7 +23,9 @@ class AuthorController extends BaseController
      */
     public function show($id = null)
     {
-        //
+        $author = new \App\Models\Author();
+        $data = $author->find($id);
+        return $this->response->setStatusCode(Response::HTTP_OK)->setJSON($data);
     }
 
     /**
@@ -33,7 +35,27 @@ class AuthorController extends BaseController
      */
     public function create()
     {
-        //
+        $author = new \App\Models\Author();
+        $data = $this->request->getPost();
+
+        if (!$author->validate($data)){
+            $response = array(
+                'status' => 'error',
+                'error' => true,
+                'messages' => $author->errors()
+            );
+
+            return $this->response->setStatusCode(Response::HTTP_BAD_REQUEST)->setJSON($response);
+        }
+
+        $author->insert($data);
+        $response = array(
+            'status' => 'success',
+            'error' => false,
+            'messages' => 'Author added successfully'
+        );
+
+        return $this->response->setStatusCode(Response::HTTP_CREATED)->setJSON($response);
     }
 
     /**
@@ -43,7 +65,29 @@ class AuthorController extends BaseController
      */
     public function update($id = null)
     {
-        //
+        $author = new \App\Models\Author();
+        $data = $this->request->getJSON();
+        unset($data->id);
+
+
+        if (!$author->validate($data)){
+            $response = array(
+                'status' => 'error',
+                'error' => true,
+                'messages' => $author->errors()
+            );
+
+            return $this->response->setStatusCode(Response::HTTP_NOT_MODIFIED)->setJSON($response);
+        }
+
+        $author->update($id,$data);
+        $response = array(
+            'status' => 'success',
+            'error' => false,
+            'messages' => 'Author updated successfully'
+        );
+
+        return $this->response->setStatusCode(Response::HTTP_OK)->setJSON($response);
     }
 
     /**
@@ -53,6 +97,25 @@ class AuthorController extends BaseController
      */
     public function delete($id = null)
     {
-        //
+        $author = new \App\Models\Author();
+       
+        if($author->delete($id)){
+            $response = array(
+                'status' => 'success',
+                'error' => false,
+                'messages' => 'Author deleted successfully'
+            );
+    
+            return $this->response->setStatusCode(Response::HTTP_OK)->setJSON($response);
+        }
+
+        $response = array(
+            'status' => 'error',
+            'error' => true,
+            'messages' => 'Author not found'
+        );
+
+        return $this->response->setStatusCode(Response::HTTP_NOT_FOUND)->setJSON($response);
+    
     }
 }

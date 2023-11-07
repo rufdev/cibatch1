@@ -16,3 +16,6 @@ $routes->resource('authors', ['controller' => 'AuthorController','except' => ['n
 $routes->resource('posts', ['controller' => 'PostController','except' => ['new', 'edit']]);
 
 
+service('auth')->routes($routes);
+
+

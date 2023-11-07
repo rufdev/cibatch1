@@ -4,9 +4,9 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class Auhtor extends Model
+class Author extends Model
 {
-    protected $table            = 'auhtors';
+    protected $table            = 'authors';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
