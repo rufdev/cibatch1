@@ -13,7 +13,7 @@ class AuthorController extends BaseController
      */
     public function index()
     {
-        //
+        return view('authors/index');
     }
 
     /**

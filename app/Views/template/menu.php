@@ -34,24 +34,24 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">TRANSACTIONS</li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url()?>dashboard" class="nav-link">
+                                <i class="nav-icon fas fa-rocket"></i>
                                 <p>
                                     Dashboard
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url()?>authors" class="nav-link">
+                                <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Authors
                                 </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="pages/widgets.html" class="nav-link">
-                                <i class="nav-icon fas fa-th"></i>
+                            <a href="<?= base_url()?>posts" class="nav-link">
+                                <i class="nav-icon fas fa-list"></i>
                                 <p>
                                     Posts
                                 </p>
