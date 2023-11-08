@@ -241,29 +241,32 @@
     $(document).on("click", "#deleteRow", function() {
         let row = $(this).parents("tr")[0];
         let id = table.row(row).data().id;
-        $.ajax({
-            method: "DELETE",
-            url: "<?= base_url() ?>authors/" + id,
-            success: function(result, textStatus, jqXHR) {
-                $(document).Toasts("create", {
-                    class: "bg-success",
-                    title: "Deleted",
-                    body: "Record Was Deleted.",
-                    autohide: true,
-                    delay: 3000
-                });
-                table.ajax.reload();
-            },
-            error: function(result, textStatus, jqXHR) {
-                $(document).Toasts("create", {
-                    class: "bg-danger",
-                    title: "Error",
-                    body: "Record Was Not Found.",
-                    autohide: true,
-                    delay: 3000
-                });
-            }
-        })
+        if (confirm("Are you sure you want to delete this record?")) {
+            $.ajax({
+                method: "DELETE",
+                url: "<?= base_url() ?>authors/" + id,
+                success: function(result, textStatus, jqXHR) {
+                    $(document).Toasts("create", {
+                        class: "bg-success",
+                        title: "Deleted",
+                        body: "Record Was Deleted.",
+                        autohide: true,
+                        delay: 3000
+                    });
+                    table.ajax.reload();
+                },
+                error: function(result, textStatus, jqXHR) {
+                    $(document).Toasts("create", {
+                        class: "bg-danger",
+                        title: "Error",
+                        body: "Record Was Not Found.",
+                        autohide: true,
+                        delay: 3000
+                    });
+                }
+            });
+        }
+
     });
 
     function clearform() {

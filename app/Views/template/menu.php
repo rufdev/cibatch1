@@ -50,6 +50,7 @@
                                 </p>
                             </a>
                         </li>
+                        <?php if (auth()->user()->inGroup('admin')) : ?>
                         <li class="nav-item">
                             <a href="<?= base_url() ?>authors" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
@@ -58,6 +59,7 @@
                                 </p>
                             </a>
                         </li>
+                        <?php endif ?>
                         <li class="nav-item">
                             <a href="<?= base_url() ?>posts" class="nav-link">
                                 <i class="nav-icon fas fa-list"></i>

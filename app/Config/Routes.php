@@ -14,11 +14,12 @@ $routes->set404Override();
 
 $routes->get('dashboard', 'DashboardController::index',['filter' => 'auth']);
 
-$routes->post('authors/list', 'AuthorController::list');
+$routes->post('authors/list', 'AuthorController::list', ['filter' => 'groupfilter:admin']);
+$routes->post('posts/list', 'PostController::list');
 
 
-$routes->resource('authors', ['controller' => 'AuthorController','except' => ['new', 'edit']]);
-$routes->resource('posts', ['controller' => 'PostController','except' => ['new', 'edit']]);
+$routes->resource('authors', ['controller' => 'AuthorController','filter' => 'groupfilter:admin', 'except' => ['new', 'edit']]);
+$routes->resource('posts', ['controller' => 'PostController','filter' => 'auth', 'except' => ['new', 'edit']]);
 
 
 service('auth')->routes($routes);
