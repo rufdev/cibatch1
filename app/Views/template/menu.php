@@ -6,6 +6,15 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
             </ul>
+
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="<?= base_url() ?>logout" role="button">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </li>
+            </ul>
         </nav>
         <!-- /.navbar -->
 
@@ -34,7 +43,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <li class="nav-header">TRANSACTIONS</li>
                         <li class="nav-item">
-                            <a href="<?= base_url()?>dashboard" class="nav-link">
+                            <a href="<?= base_url() ?>dashboard" class="nav-link">
                                 <i class="nav-icon fas fa-rocket"></i>
                                 <p>
                                     Dashboard
@@ -42,7 +51,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url()?>authors" class="nav-link">
+                            <a href="<?= base_url() ?>authors" class="nav-link">
                                 <i class="nav-icon fas fa-user"></i>
                                 <p>
                                     Authors
@@ -50,7 +59,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="<?= base_url()?>posts" class="nav-link">
+                            <a href="<?= base_url() ?>posts" class="nav-link">
                                 <i class="nav-icon fas fa-list"></i>
                                 <p>
                                     Posts

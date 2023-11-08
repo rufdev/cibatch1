@@ -9,7 +9,6 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            <!-- content goes here -->
             <?= $this->renderSection('content') ?>
         </div>
         <!-- /.content-wrapper -->

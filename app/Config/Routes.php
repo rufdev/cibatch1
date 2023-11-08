@@ -12,7 +12,7 @@ $routes->setDefaultMethod('index');
 $routes->setTranslateURIDashes(false);
 $routes->set404Override();
 
-$routes->get('dashboard', 'DashboardController::index');
+$routes->get('dashboard', 'DashboardController::index',['filter' => 'auth']);
 
 $routes->resource('authors', ['controller' => 'AuthorController','except' => ['new', 'edit']]);
 $routes->resource('posts', ['controller' => 'PostController','except' => ['new', 'edit']]);
