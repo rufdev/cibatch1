@@ -3,7 +3,7 @@
 
 namespace App\Filters;
 
-use CodeIgniter\FIlters\FilterInterface;
+use CodeIgniter\Filters\FilterInterface;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 
