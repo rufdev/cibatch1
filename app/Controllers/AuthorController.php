@@ -35,6 +35,7 @@ class AuthorController extends BaseController
      */
     public function create()
     {
+      
         $author = new \App\Models\Author();
         $data = $this->request->getPost();
 
