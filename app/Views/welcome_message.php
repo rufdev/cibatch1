@@ -268,7 +268,7 @@
 
         <div class="heroe">
 
-            <h1>Welcome <?= auth()->user()->username.'('.auth()->user()->getGroups()[0].')' ?? "to our App!" ?></h1>
+            <h1>Welcome <?= auth()->user()->username ?? "to our App!" ?></h1>
 
             <h2>The small framework with powerful features</h2>
 
