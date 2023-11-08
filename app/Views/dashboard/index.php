@@ -96,11 +96,14 @@
             responsive: true,
             maintainAspectRatio: false,
             datasetFill: false,
-            scaleBeginAtZero : true,
+            scaleBeginAtZero: true,
             scales: {
-                y: {
-                    beginAtZero: true 
-                }
+                yAxes: [{
+                    ticks: {
+                        stepSize: 1,
+                        beginAtZero: true
+                    }
+                }]
             }
         }
 
